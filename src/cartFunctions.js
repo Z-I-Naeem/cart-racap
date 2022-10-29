@@ -1,8 +1,8 @@
 
 // let count 
+let shoppingCart;
 
 let addToCart = id => {
-    let shoppingCart;
 
 // Get the cart object
 
@@ -16,4 +16,30 @@ let addToCart = id => {
 
     localStorage.setItem("stored-cart",JSON.stringify(shoppingCart))
 }
-export default addToCart
+
+
+let removeCart = id =>{
+    // console.log('button pressed', id);
+    const purchaseObj = localStorage.getItem('stored-cart')
+    if(purchaseObj){
+        shoppingCart = JSON.parse(purchaseObj)
+        if (id in shoppingCart){
+            // console.log('inside');
+            delete shoppingCart[id]
+            localStorage.setItem("stored-cart",JSON.stringify(shoppingCart))
+
+        }
+    }
+
+
+}
+
+
+
+
+
+
+
+
+
+export {addToCart, removeCart} 
