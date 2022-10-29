@@ -1,17 +1,19 @@
 
-let count = null
+// let count 
 
 let addToCart = id => {
-    // console.log('item added' , id);
-    const item = localStorage.getItem(id)
-    // if(item){
-    //     console.log(true);
-    //     console.log(count++);
-    // }else{
-    //     count = 1
-    // }
-    item?count++:count = 1
-    // console.log(count);
-    localStorage.setItem(id,JSON.stringify(count))
+    let shoppingCart;
+
+// Get the cart object
+
+    const purchaseObj = localStorage.getItem('stored-cart')
+    purchaseObj? shoppingCart = JSON.parse(purchaseObj) : shoppingCart = {}
+
+
+    const item = shoppingCart[id]
+    item?shoppingCart[id]++:shoppingCart[id] = 1
+
+
+    localStorage.setItem("stored-cart",JSON.stringify(shoppingCart))
 }
 export default addToCart
