@@ -1,5 +1,5 @@
 import React from 'react';
-import  {addToCart, removeCart } from '../../cartFunctions';
+import  {addToCart, reduceToCart, removeCart } from '../../cartFunctions';
 
 const Product = ({items}) => {
     // console.log(props);
@@ -11,6 +11,7 @@ const Product = ({items}) => {
             <h1>Name:{title}</h1>
             <h3>{price}</h3>    
             <button onClick={() => addToCart(id)}>Purchase</button>
+            <button onClick={() => reduceToCart(id)}>reduce</button>
             <button onClick={() => removeCart(id)}>Remove</button>
         </div>
     );
